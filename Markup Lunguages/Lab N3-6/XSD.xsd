@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="subjects">
+      <xs:complexType>
+          <xs:sequence>
+              <xs:element maxOccurs="unbounded" ref="subject"/>
+          </xs:sequence>
+      </xs:complexType>
+  </xs:element>
+
+  <xs:element name="subject">
+    <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nubmer" type="xs:int"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="labscount" type="xs:int"/>
+                <xs:element ref="mark"/>
+                <xs:element ref="groups"/>
+            </xs:sequence>
+            <xs:attribute name="lang" type="xs:language"/>
+        </xs:complexType>
+  </xs:element>
+
+  <xs:element name="mark">
+    <xs:simpleType>
+      <xs:restriction base="xs:float">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="5"/>
+      </xs:restriction>
+  </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="groups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="group"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="group">
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+
+</xs:schema>
